@@ -1,0 +1,26 @@
+
+<div class="well flex">
+  <div>
+    <h3>{{currentDayForecast.city}} ( {{zipCode}})</h3>
+    <h4>Current conditions: {{ currentDayForecast.weather[0].skyCondition }}</h4>
+    <h4>Temperatures today:</h4>
+    <p>
+      Current {{ currentDayForecast.weather[0].temp }}°F 
+      - Max {{ currentDayForecast.weather[0].tempMax }}°F
+      - Min {{ currentDayForecast.weather[0].tempMin }}°F
+    </p>
+    <p>
+      <a [routerLink]="['/forcast', zipCode]">Show 5-day forecast for  {{currentDayForecast.city}}</a>
+    </p>
+  </div>
+  <div>
+
+    <img  weatherIcon [skyCondition]="currentDayForecast.weather[0].skyCondition" alt="Weather Icon">
+    <span class="close" (click)="deleteZipCode(zipCode)">×</span>
+  
+  </div>
+</div>
+
+
+
+

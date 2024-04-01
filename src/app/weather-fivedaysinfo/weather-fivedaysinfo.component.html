@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">5-day forecast for Rancho Cordova</h3>
+    </div>
+    <ul class="list-group" *ngIf="fiveDayForecasts && fiveDayForecasts.length > 0">
+      <li class="list-group-item" *ngFor="let forecastEntry of fiveDayForecasts">
+        <ng-container *ngIf="forecastEntry.weather && forecastEntry.weather.length > 0">
+          {{ forecastEntry.weather[0].day }}:
+          {{ forecastEntry.weather[0].skyCondition }}
+          - Min: {{ forecastEntry.weather[0].tempMin }}°F
+          - Max: {{ forecastEntry.weather[0].tempMax }}°F
+          <img  weatherIcon [skyCondition]="forecastEntry.weather[0].skyCondition" alt="Sky Condition Icon">
+        </ng-container>
+      </li>
+    </ul>
+  </div>
+  <button class="btn btn-success" tabindex="0" id="mainPageBtn" [routerLink]="'/'">&lt; Back to main page</button>
+</div>

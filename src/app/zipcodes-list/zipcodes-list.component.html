@@ -1,0 +1,49 @@
+
+<div class="container-fluid">
+  <div class="well">
+    <form (ngSubmit)="addZipCode()" class="example-form">
+      <h2>Enter a zipcode:</h2>
+      <input
+        matInput
+        type="text"
+        id="zipCode"
+        name="zipCode"
+        [(ngModel)]="newZipCode"
+        required
+        class="form-control"
+        placeholder="Zipcode"
+        id="addLocation"
+      />
+      <br />
+      <button class="btn btn-primary" id="addLocationBtn"  type="submit">Add location</button>
+    </form>
+  </div>
+</div>
+<div *ngFor="let zipCode of zipCodes">
+<app-weather-info [zipCode]="zipCode" (zipCodeDeleted)="onDeleteZipCode($event)"></app-weather-info>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
